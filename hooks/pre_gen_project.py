@@ -6,6 +6,7 @@ NOTE:
 
 TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
 """
+
 from __future__ import print_function
 
 import sys
@@ -47,10 +48,14 @@ if "{{ cookiecutter.use_docker }}".lower() == "n":
                     HINT
                     + "Please respond with {} or {}: ".format(
                         ", ".join(
-                            ["'{}'".format(o) for o in yes_options if not o == ""]
+                            [
+                                "'{}'".format(o)
+                                for o in yes_options
+                                if not o == ""
+                            ]
                         ),
                         ", ".join(
-                            ["'{}'".format(o) for o in no_options if not o == ""]
+                            ["'{}'".format(o) for o in no_options if o != ""]
                         ),
                     )
                     + TERMINATOR

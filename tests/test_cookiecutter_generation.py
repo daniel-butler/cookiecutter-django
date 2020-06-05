@@ -78,9 +78,9 @@ def check_paths(paths):
         if is_binary(path):
             continue
 
+        msg = "cookiecutter variable not replaced in {}"
         for line in open(path, "r"):
             match = RE_OBJ.search(line)
-            msg = "cookiecutter variable not replaced in {}"
             assert match is None, msg.format(path)
 
 
